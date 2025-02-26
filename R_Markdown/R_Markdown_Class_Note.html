@@ -1486,14 +1486,13 @@ border-radius: 0px;
 </div>
 
 
-<div id="r-markdown-for-iterative-programming" class="section level3">
-<h3>R Markdown for Iterative Programming</h3>
+<div id="r-markdown-for-iterative-programming" class="section level2">
+<h2>R Markdown for Iterative Programming</h2>
 <p>R Markdown is a powerful tool for iterating and refining programs,
 integrating code, output, and documentation in one document. It supports
 multiple languages, facilitates collaboration, and enables dynamic
 reports in formats like HTML, PDF, and Word. And it is a great tool for
 reproduciblity.</p>
-</div>
 <div id="r-markdown-and-code-chunck" class="section level3">
 <h3>R Markdown and Code Chunck</h3>
 <p>To include R code in your Rmarkdwon document, you will need to insert
@@ -1535,6 +1534,7 @@ documents:</p>
 </div>
 <div id="headers" class="section level3">
 <h3>Headers:</h3>
+</div>
 </div>
 <div id="first-level-header" class="section level1">
 <h1>First level header</h1>
@@ -1697,8 +1697,18 @@ link</p>
 </tbody>
 </table>
 </div>
+</div>
+<div id="organizing-a-repository-and-editing-a-readme-using-markdown" class="section level2">
+<h2>Organizing a repository and editing a readme using Markdown</h2>
 <div id="directory-tree" class="section level3">
 <h3>Directory Tree</h3>
+<p>We can also create a file tree using the fs package in R. This
+package allows us to print the directory structure, which is useful for
+providing explicit instructions in the README about each file’s purpose.
+We can copy the file tree text and paste it into a markdown block to
+make it viewable on GitHub. Labeling the file tree and providing
+descriptions for each file helps users understand the project
+structure.</p>
 <p>First install the package “fs” Then run this code:</p>
 <pre class="r"><code>fs::dir_tree()</code></pre>
 <pre><code>## .
@@ -1708,6 +1718,58 @@ link</p>
 ## │   └── figure-html
 ## │       └── Include figures-1.png
 ## └── Shrek.jpg</code></pre>
+</div>
+<div id="zenodo-link" class="section level3">
+<h3>Zenodo Link</h3>
+<p>Zenodo allows us to create a DOI (Digital Object Identifier) for our
+repository, making it citable. By linking your Zenodo account to GitHub,
+you can generate a Zenodo badge that provides a direct link to your
+release. This badge can be added to your README for easy access.</p>
+<p>To create a Zenodo badge for your release:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Ensure your GitHub account is linked to
+Zenodo.</strong><br />
+</li>
+<li><strong>Create a release on GitHub</strong>, which Zenodo will
+recognize and assign a DOI.<br />
+</li>
+<li><strong>Include the badge in your README</strong> to provide a
+direct citation link.</li>
+</ol>
+</div>
+<div id="steps-to-create-a-github-release" class="section level3">
+<h3>Steps to Create a GitHub Release</h3>
+<ul>
+<li><strong>Release Title:</strong> Enter a meaningful title for your
+release.</li>
+<li><strong>Description:</strong> Provide details about the release. You
+can mention contributors using <code>@username</code>, which will
+include their avatars in the Contributors section. You can also generate
+release notes automatically by clicking <strong>Generate release
+notes</strong>.</li>
+<li><strong>Binary Files:</strong> If applicable, upload compiled
+programs or other binary files by dragging and dropping them into the
+binaries section.</li>
+<li><strong>Pre-release Option:</strong> Mark the release as a
+<strong>pre-release</strong> if it is not production-ready.</li>
+<li><strong>Set as Latest Release:</strong> If unchecked, GitHub will
+assign the latest release based on semantic versioning.</li>
+<li><strong>GitHub Discussions (Optional):</strong> If enabled, you can
+create a discussion for the release.
+<ul>
+<li>Click <strong>Create a discussion for this release</strong>.</li>
+<li>Select a category from the dropdown menu.</li>
+</ul></li>
+</ul>
+</div>
+<div id="publishing-your-release" class="section level3">
+<h3>Publishing Your Release</h3>
+<ul>
+<li>Click <strong>Publish release</strong> to make it public.</li>
+<li>Click <strong>Save draft</strong> to work on it later.</li>
+</ul>
+<p>You can view both published and draft releases in your repository’s
+<strong>Releases</strong> section.</p>
 </div>
 </div>
 </div>

@@ -98,7 +98,28 @@ Then run this code:
 fs::dir_tree()
 ```
 ### Zenodo Link
-Additionally, we can create a Zenodo badge for our repository. Zenodo provides a DOI (digital object identifier) that links back to your work, making it citable. To do this, you need a Zenodo account linked to your GitHub account. Once linked, you can create a release on GitHub, which Zenodo will recognize and generate a badge for. This badge can be included in your README, providing a direct link to the release.
 
+Zenodo allows us to create a DOI (Digital Object Identifier) for our repository, making it citable. By linking your Zenodo account to GitHub, you can generate a Zenodo badge that provides a direct link to your release. This badge can be added to your README for easy access.
 
+To create a Zenodo badge for your release:
 
+1. **Ensure your GitHub account is linked to Zenodo.**  
+2. **Create a release on GitHub**, which Zenodo will recognize and assign a DOI.  
+3. **Include the badge in your README** to provide a direct citation link.
+
+### Steps to Create a GitHub Release
+
+- **Release Title:** Enter a meaningful title for your release.
+- **Description:** Provide details about the release. You can mention contributors using `@username`, which will include their avatars in the Contributors section. You can also generate release notes automatically by clicking **Generate release notes**.
+- **Binary Files:** If applicable, upload compiled programs or other binary files by dragging and dropping them into the binaries section.
+- **Pre-release Option:** Mark the release as a **pre-release** if it is not production-ready.
+- **Set as Latest Release:** If unchecked, GitHub will assign the latest release based on semantic versioning.
+- **GitHub Discussions (Optional):** If enabled, you can create a discussion for the release.
+  - Click **Create a discussion for this release**.
+  - Select a category from the dropdown menu.
+
+### Publishing Your Release
+- Click **Publish release** to make it public.
+- Click **Save draft** to work on it later.
+
+You can view both published and draft releases in your repository's **Releases** section.
