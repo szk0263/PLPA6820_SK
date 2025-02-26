@@ -59,9 +59,7 @@ library(dplyr)
 
 ``` r
 # Read the data using a relative path
-data <- read.csv("C:/Users/szk0263/Documents/PLPA6820_SK/R_Markdown/Coding_Challenge4/MycotoxinData.csv", na.strings = "na")
-
-#data <- read.csv("R_Markdown/Coding_Challenge4/MycotoxinData.csv", na.strings = "na")
+data <- read.csv("R_Markdown/Coding_Challenge4/MycotoxinData.csv", na.strings = "na")
 
 # Display the first few rows of the dataset
 head(data)
