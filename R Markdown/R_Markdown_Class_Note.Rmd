@@ -1,0 +1,14 @@
+---
+title: "R Markdown Class Note"
+author: "Shakiba Kazemian"
+date: "2025-02-25"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+  md_document:
+    variant: gfm
+  pdf_document:
+  word_document:
+---
+
