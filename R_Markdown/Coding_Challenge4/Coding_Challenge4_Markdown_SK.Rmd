@@ -3,11 +3,11 @@ title: "Coding_Challenge4_Markdown_SK"
 author: "Shakiba Kazemian"
 date: "2025-02-26"
 output:
+  word_document:
+    toc: true
   html_document:
     toc: true
     df_print: paged
-  word_document:
-    toc: true
   github_document: null
   pdf_document:
     toc: true
@@ -42,7 +42,7 @@ library(ggpubr)
 library(dplyr)
 
 # Read the data using a relative path
-data <- read.csv("C:/Users/szk0263/Documents/PLPA6820_SK/R_Markdown/Coding_Challenge4/MycotoxinData.csv", na.strings = "na")
+data <- read.csv("R_Markdown/Coding_Challenge4/MycotoxinData.csv", na.strings = "na")
 
 #data <- read.csv("R_Markdown/Coding_Challenge4/MycotoxinData.csv", na.strings = "na")
 
