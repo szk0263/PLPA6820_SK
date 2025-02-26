@@ -1,0 +1,39 @@
+---
+title: "Coding_Challenge4_Markdown_SK"
+author: "SK"
+date: "2025-02-26"
+output: html_document
+---
+
+# Coding Challenge 4 - Markdown
+
+## **Manuscript Reference**
+[Noel, Z.A., Roze, L.V., Breunig, M., Trail, F. 2022. *Endophytic fungi as promising biocontrol agent to protect wheat from Fusarium graminearum head blight*. Plant Disease.](https://doi.org/10.1094/PDIS-06-21-1253-RE)
+
+---
+
+## **1. Explain the Following**
+
+### a. YAML Header
+A **YAML (Yet Another Markup Language) header** in R Markdown is a section at the top of the file enclosed by triple dashes (`---`). It defines metadata for the document, such as the title, author, date, and output format.
+
+### b. Literate Programming
+Literate programming means **writing programs as documents**, where explanations guide the reader, and code is embedded seamlessly. **R Markdown is a perfect example of literate programming!**
+
+---
+
+## **2. Data Preparation**
+### **Read the Data**
+The dataset is loaded using a **relative file path**, ensuring portability. Missing values (`NA`) are explicitly defined.
+
+```{r load_data, echo=TRUE}
+# Load necessary libraries
+library(ggplot2)
+library(ggpubr)
+library(dplyr)
+
+# Read the data using a relative path
+data <- read.csv("R_Markdown/MycotoxinData.csv", na.strings = "na")
+
+# Display the first few rows of the dataset
+head(data)
