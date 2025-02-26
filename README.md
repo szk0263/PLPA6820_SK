@@ -47,6 +47,7 @@ fs::dir_tree()
 │   ├── Coding Challenge 3_ Data visualization 2_SK.R
 │   ├── Data Visualization1_Notes_SK.R
 │   ├── Data Visualization2_Notes_SK.R
+│   ├── MycotoxinData.csv
 │   └── Plots for DataVisualization 2 (Advanced)
 │       ├── ADON_plot.png
 │       ├── Combined_Plot.png
@@ -56,12 +57,24 @@ fs::dir_tree()
 ├── Intro_to_R_Note
 │   ├── Coding challenge1_Introduction to R _SK.R
 │   └── Intro to R_ShakibaKazemian.R
-├── PLPA6820_SK.Rproj  # Top level directory .Rproj file (Working Directory)
-├── README.md          # Top level directory README
+├── PLPA6820_SK.Rproj
+├── README.md
 └── R_Markdown
+    ├── Coding_Challenge4
+    │   ├── Coding_Challenge4_Markdown_SK.Rmd
+    │   └── MycotoxinData.csv
     ├── R_Markdown_Class_Note.html
-    ├── R_Markdown_Class_Note.Rmd     # GitHub formatted Markdown
+    ├── R_Markdown_Class_Note.Rmd
     └── Shrek.jpg
 ```
+
+---
+
+## **GitHub-Flavored Markdown File**
+Click below to view the **GitHub-flavored Markdown** version of Coding Challenge 4:
+
+**[Coding Challenge 4 - GitHub Markdown](R_Markdown/Coding_Challenge4/Coding_Challenge4_Markdown_SK.md)**
+
+---
 ### DOI:
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14933733.svg)](https://doi.org/10.5281/zenodo.14933733)
