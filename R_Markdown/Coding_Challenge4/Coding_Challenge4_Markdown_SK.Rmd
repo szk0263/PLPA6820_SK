@@ -3,9 +3,9 @@ title: "Coding_Challenge4_Markdown_SK"
 author: "Shakiba Kazemian"
 date: "2025-02-26"
 output:
-  pdf_document:
-    toc: true
   word_document:
+    toc: true
+  pdf_document:
     toc: true
   github_document:
 ---
@@ -33,12 +33,13 @@ The dataset is loaded using a **relative file path**, ensuring portability. Miss
 
 ```{r load_data, echo=TRUE}
 # Load necessary libraries
+knitr::opts_knit$set(root.dir = getwd())  # Ensure consistent working directory
 library(ggplot2)
 library(ggpubr)
 library(dplyr)
 
 # Read the data using a relative path
-data <- read.csv("R_Markdown/MycotoxinData.csv", na.strings = "na")
+data <- read.csv("R_Markdown/Coding_Challenge4/MycotoxinData.csv", na.strings = "na")
 
 # Display the first few rows of the dataset
 head(data)
