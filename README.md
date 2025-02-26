@@ -13,7 +13,7 @@ This repository includes **various R-related topics**, such as:
 - Version control and repository management with Git & GitHub
 - Best practices for organizing R projects
 - Documenting workflows and updating README files
--[Reproducibility & Git Class Note](Intro%20to%20R%20Note/Intro%20to%20R_ShakibaKazemian.R)
+- [Reproducibility & Git Class Note](Intro%20to%20R%20Note/Intro%20to%20R_ShakibaKazemian.R)
 
 ### **2.Basic Data Visualization**
 - Creating **publication-ready plots** using `ggplot2`
@@ -32,4 +32,4 @@ This repository includes **various R-related topics**, such as:
 - Formatting reports using Markdown syntax (headings, lists, tables)
 - Embedding code chunks and inline R expressions
 - Exporting reports to HTML, PDF, and Word
-- [R Markdown Class Note](R Markdown/R_Markdown_Class_Note.Rmd)
+- [R Markdown Class Note](R%20Markdown/R_Markdown_Class_Note.Rmd)
