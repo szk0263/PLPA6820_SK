@@ -11,7 +11,7 @@ output:
   pdf_document:
   word_document:
 ---
-### R Markdown for Iterative Programming
+## R Markdown for Iterative Programming
 
 R Markdown is a powerful tool for iterating and refining programs, integrating code, output, and documentation in one document. It supports multiple languages, facilitates collaboration, and enables dynamic reports in formats like HTML, PDF, and Word.
 And it is a great tool for reproduciblity.
@@ -87,4 +87,18 @@ If you forgot the exclamation mark (!), it will become just a link
 ```{r}
 kable(head(mtcars, n = 5), digits = 3, format = "markdown")
 ```
+
+## Organizing a repository and editing a readme using Markdown
+### Directory Tree
+We can also create a file tree using the fs package in R. This package allows us to print the directory structure, which is useful for providing explicit instructions in the README about each file's purpose. We can copy the file tree text and paste it into a markdown block to make it viewable on GitHub. Labeling the file tree and providing descriptions for each file helps users understand the project structure.
+
+First install the package "fs"
+Then run this code:
+```{r}
+fs::dir_tree()
+```
+### Zenodo Link
+Additionally, we can create a Zenodo badge for our repository. Zenodo provides a DOI (digital object identifier) that links back to your work, making it citable. To do this, you need a Zenodo account linked to your GitHub account. Once linked, you can create a release on GitHub, which Zenodo will recognize and generate a badge for. This badge can be included in your README, providing a direct link to the release.
+
+
 
