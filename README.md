@@ -63,3 +63,5 @@ fs::dir_tree()
     ├── R_Markdown_Class_Note.Rmd     # GitHub formatted Markdown
     └── Shrek.jpg
 ```
+### DOI:
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14933733.svg)](https://doi.org/10.5281/zenodo.14933733)
