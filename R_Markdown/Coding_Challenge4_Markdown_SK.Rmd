@@ -1,8 +1,13 @@
 ---
 title: "Coding_Challenge4_Markdown_SK"
-author: "SK"
+author: "Shakiba Kazemian"
 date: "2025-02-26"
-output: html_document
+output:
+  pdf_document:
+    toc: true
+  word_document:
+    toc: true
+  github_document:
 ---
 
 # Coding Challenge 4 - Markdown
@@ -37,3 +42,62 @@ data <- read.csv("R_Markdown/MycotoxinData.csv", na.strings = "na")
 
 # Display the first few rows of the dataset
 head(data)
+```
+
+### **Data Visualization**
+#### Plotting Individual Figures
+Separate plots for DON data, 15ADON, and Seedmass using ggplot2.
+```{r}
+# DON Plot
+DON_plot <- ggplot(data, aes(x = Treatment, y = DON)) +
+  geom_boxplot() +
+  theme_minimal() +
+  ggtitle("DON Levels by Treatment")
+
+# 15ADON Plot
+ADON_plot <- ggplot(data, aes(x = Treatment, y = ADON)) +
+  geom_boxplot() +
+  theme_minimal() +
+  ggtitle("15ADON Levels by Treatment")
+
+# Seedmass Plot
+SeedMass_plot <- ggplot(data, aes(x = Treatment, y = SeedMass)) +
+  geom_boxplot() +
+  theme_minimal() +
+  ggtitle("Seed Mass by Treatment")
+```
+
+### **Statistical Analysis: Pairwise t-tests**
+Adding pairwise t-tests to each plot using stat_compare_means().
+```{r}
+# Add Pairwise t-tests to Each Plot
+DON_plot_ttest <- DON_plot + stat_compare_means(method = "t.test", aes(group = Treatment), label = "p.signif")
+ADON_plot_ttest <- ADON_plot + stat_compare_means(method = "t.test", aes(group = Treatment), label = "p.signif")
+SeedMass_plot_ttest <- SeedMass_plot + stat_compare_means(method = "t.test", aes(group = Treatment), label = "p.signif")
+```
+
+### **Combining All Plots**
+Using ggarrange() to create a single figure with all plots.
+```{r}
+# Combine all updated plots into one figure
+Combined_Plot_ttest <- ggarrange(
+  DON_plot_ttest, ADON_plot_ttest, SeedMass_plot_ttest,  
+  labels = c("A", "B", "C"),  
+  ncol = 3, nrow = 1,  
+  common.legend = TRUE,  
+  legend = "right"
+)
+
+# Display the final combined plot with t-tests
+print(Combined_Plot_ttest)
+
+# Save the final combined figure
+ggsave("Combined_Plot_ttest.png", Combined_Plot_ttest, width = 12, height = 5, dpi = 300)
+```
+
+### **Rendering File in different formats**
+```{r}
+rmarkdown::render("CodingChallenge4_Markdown.Rmd", output_format = "word_document")
+rmarkdown::render("CodingChallenge4_Markdown.Rmd", output_format = "pdf_document")
+rmarkdown::render("CodingChallenge4_Markdown.Rmd", output_format = "github_document")
+```
