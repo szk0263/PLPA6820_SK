@@ -33,3 +33,33 @@ This repository includes **various R-related topics**, such as:
 - Embedding code chunks and inline R expressions
 - Exporting reports to HTML, PDF, and Word
 - [R Markdown Class Note](R_Markdown/R_Markdown_Class_Note.Rmd)
+
+---
+## **Directory Tree**
+
+```r
+fs::dir_tree()
+```
+
+```bash
+├── Data_Visualization
+│   ├── Coding Challenge 2_Data visualization 1_SK.R
+│   ├── Coding Challenge 3_ Data visualization 2_SK.R
+│   ├── Data Visualization1_Notes_SK.R
+│   ├── Data Visualization2_Notes_SK.R
+│   └── Plots for DataVisualization 2 (Advanced)
+│       ├── ADON_plot.png
+│       ├── Combined_Plot.png
+│       ├── Combined_Plot_ttest.png
+│       ├── DON_plot.png
+│       └── SeedMass_plot.png
+├── Intro_to_R_Note
+│   ├── Coding challenge1_Introduction to R _SK.R
+│   └── Intro to R_ShakibaKazemian.R
+├── PLPA6820_SK.Rproj  # Top level directory .Rproj file (Working Directory)
+├── README.md          # Top level directory README
+└── R_Markdown
+    ├── R_Markdown_Class_Note.html
+    ├── R_Markdown_Class_Note.Rmd     # GitHub formatted Markdown
+    └── Shrek.jpg
+```
