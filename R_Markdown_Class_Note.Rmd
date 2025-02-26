@@ -28,12 +28,13 @@ library(markdown)
 ```
 
 
-This is an example of R code.
-# "Include" option shows the code chunk
-# "Echo" option shows the output
+This is an example of R code:
+"Include" option shows the code chunk
+"Echo" option shows the output
 ```{r r_code_example, include=TRUE, echo=FALSE}
 summary(mtcars)
 ```
+
 ```{r Include figures}
 data("mtcars")
 ggplot(mtcars, aes(x = wt, y = mpg)) +
@@ -45,23 +46,23 @@ ggplot(mtcars, aes(x = wt, y = mpg)) +
 ```
 You can also R Markdown Formatting Options to organize your documents:
 
-## Headers:
+### Headers:
 
 # First level header
 ## secod level header
 ### Third level header
 #### Forth level header
 
-## Italics (by putting the sentence between `* *`):
+### Italics (by putting the sentence between `* *`):
 
 `*This text is in italics*`
 
-## Bold (by putting the sentence between `** **` or `__ __`):
+### Bold (by putting the sentence between `** **` or `__ __`):
 
 `**This text is in bold**`
 `__This text is also in bold__`
 
-## List of items (by putting the - or numbers on the left side of the items name):
+### List of items (by putting the - or numbers on the left side of the items name):
 
 - Item one
 - Item two
@@ -73,15 +74,16 @@ You can also R Markdown Formatting Options to organize your documents:
     - one unordered item
     - one unordered item
 
-## Links (by putting the [ ] on both sides of the sentence):
+### Links (by putting the [ ] on both sides of the sentence):
 [Link to my github](https://github.com/szk0263/PLPA6820_SK)
 
-## Images (by putting the ![ ] on both sides of the image name following by the image path in paranthesis):
+### Images (by putting the ![ ] on both sides of the image name following by the image path in paranthesis):
 
 ![Shrek ggplot](shrek.jpg)
+
 If you forgot the exclamation mark (!), it will become just a link
 
-## Formatted tables:
+### Formatted tables:
 ```{r}
 kable(head(mtcars, n = 5), digits = 3, format = "markdown")
 ```
