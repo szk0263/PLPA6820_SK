@@ -34,6 +34,15 @@ This repository includes **various R-related topics**, such as:
 - Exporting reports to HTML, PDF, and Word
 - [R Markdown Class Note](R_Markdown/R_Markdown_Class_Note.Rmd)
 
+### ** 5. Data Wrangling
+- Cleaning and transforming data using tidyverse
+- Selecting and filtering data with select(), filter()
+- Creating new variables with mutate()
+- Summarizing data with summarise() and group_by()
+- Reshaping data with pivot_wider() and pivot_longer()
+- Merging datasets using left_join(), right_join(), inner_join(), and full_join()
+- [Data Wrangling Class Note](Data_Wrangeling/Data_Wrangling_ClassNote_SK.Rmd)
+
 ---
 ## **Directory Tree**
 
@@ -54,6 +63,15 @@ fs::dir_tree()
 │       ├── Combined_Plot_ttest.png
 │       ├── DON_plot.png
 │       └── SeedMass_plot.png
+├── Data_Wrangeling
+│   ├── Bull_richness.csv
+│   ├── Coding_Challenge5
+│   │   ├── CodingChallenge5_DataWrangeling_SK.pdf
+│   │   ├── CodingChallenge5_DataWrangeling_SK.Rmd
+│   │   ├── DiversityData.csv
+│   │   └── Metadata.csv
+│   ├── Data_Wrangling_ClassNote_SK.html
+│   └── Data_Wrangling_ClassNote_SK.Rmd
 ├── Intro_to_R_Note
 │   ├── Coding challenge1_Introduction to R _SK.R
 │   └── Intro to R_ShakibaKazemian.R
@@ -70,13 +88,6 @@ fs::dir_tree()
     ├── R_Markdown_Class_Note.Rmd
     └── Shrek.jpg
 ```
-
----
-
-## **GitHub-Flavored Markdown File**
-Click below to view the **GitHub-flavored Markdown** version of Coding Challenge 4:
-
-**[Coding Challenge 4 - GitHub Markdown](R_Markdown/Coding_Challenge4/Coding_Challenge4_Markdown_SK.md)**
 
 ---
 ### DOI:
