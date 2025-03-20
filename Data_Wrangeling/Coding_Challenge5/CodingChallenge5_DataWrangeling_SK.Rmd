@@ -124,9 +124,7 @@ ggplot(alpha_plot_data, aes(x = Time_Point, y = values, color = diff, group = di
 ```
 
 
-# Q7:
+# Q7: This is my submission for Coding Challenge 5.
 
-This is my submission for Coding Challenge 5.
-
-[Click here to view my GitHub repository](https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME)
+[Click here to view my GitHub repository](https://github.com/szk0263/PLPA6820_SK/tree/main/Data_Wrangeling/Coding_Challenge5)
 
