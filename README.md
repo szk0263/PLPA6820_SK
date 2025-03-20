@@ -34,7 +34,7 @@ This repository includes **various R-related topics**, such as:
 - Exporting reports to HTML, PDF, and Word
 - [R Markdown Class Note](R_Markdown/R_Markdown_Class_Note.Rmd)
 
-### ** 5. Data Wrangling
+### **5. Data Wrangling**
 - Cleaning and transforming data using tidyverse
 - Selecting and filtering data with select(), filter()
 - Creating new variables with mutate()
