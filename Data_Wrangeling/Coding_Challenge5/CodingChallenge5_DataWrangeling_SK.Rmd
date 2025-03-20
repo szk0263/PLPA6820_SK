@@ -1,0 +1,132 @@
+---
+title: "CodingChallenge5_DataWrangeling_SK"
+author: "Shakiba Kazemian"
+date: "2025-03-20"
+output: pdf_document
+---
+
+# Q1: Reading the CSV files using relative paths
+
+```{r}
+# Loading necessary package
+library(tidyverse)
+
+# Read the files
+diversity_data <- read.csv("DiversityData.csv")
+metadata <- read.csv("Metadata.csv")
+
+# Check structure of the data
+str(diversity_data)
+str(metadata)
+```
+
+
+# Q2: Joining the two dataframes together by the common column ‘Code’.
+
+```{r}
+# Join the two dataframes by the common column "Code"
+alpha <- left_join(metadata, diversity_data, by = "Code")
+
+# Check the structure of the resulting dataframe
+str(alpha)
+
+# Display the first few rows
+head(alpha)
+```
+
+
+# Q3: Calculating Pielou’s evenness index: Pielou’s evenness is an ecological parameter calculated by the Shannon diversity index (column shannon) divided by the log of the richness column. 
+
+```{r}
+# Create a new column for Pielou’s evenness index
+alpha_even <- alpha %>%
+  mutate(Pielou_Evenness = shannon / log(richness))
+
+# Check the structure of the new dataframe
+str(alpha_even)
+
+# Display the first few rows
+head(alpha_even)
+```
+
+
+# Q4: Calculating the mean and standard error evenness grouped by crop over time.
+
+```{r}
+# Summarize the data: Mean and standard error of Pielou's evenness index grouped by Crop and Time_Point
+alpha_average <- alpha_even %>%
+  group_by(Crop, Time_Point) %>%  # Group by Crop and Time_Point
+  summarise(
+    Mean_Evenness = mean(Pielou_Evenness, na.rm = TRUE),  # Calculate mean evenness
+    n = n(),  # Count the number of observations per group
+    sd_evenness = sd(Pielou_Evenness, na.rm = TRUE)  # Standard deviation
+  ) %>%
+  mutate(std_err_evenness = sd_evenness / sqrt(n))  # Calculate standard error
+
+# Check the structure of the resulting dataframe
+str(alpha_average)
+
+# Display the first few rows
+head(alpha_average)
+
+```
+
+
+# Q5: Calculating the differences in mean evenness between Soybean, Cotton, and Soil.
+
+```{r}
+# Transform the data from long to wide format
+alpha_average2 <- alpha_average %>%
+  select(Time_Point, Crop, Mean_Evenness) %>%  # Select relevant columns
+  pivot_wider(names_from = Crop, values_from = Mean_Evenness) %>%  # Reshape to wide format
+  mutate(
+    diff.cotton.even = Soil - Cotton,   # Difference between Cotton and Soil
+    diff.soybean.even = Soil - Soybean   # Difference between Soybean and Soil
+  )
+
+# Check the structure of the resulting dataframe
+str(alpha_average2)
+
+# Display the first few rows
+head(alpha_average2)
+```
+
+
+# Q6: creating the plot using ggplot2 after reshaping the data with pivot_longer()
+
+```{r}
+# Reshape the data from wide to long format
+alpha_plot_data <- alpha_average2 %>%
+  select(Time_Point, diff.cotton.even, diff.soybean.even) %>%  # Select relevant columns
+  pivot_longer(cols = c(diff.cotton.even, diff.soybean.even), 
+               names_to = "diff", 
+               values_to = "values")  # Reshape data
+
+# Create the plot
+ggplot(alpha_plot_data, aes(x = Time_Point, y = values, color = diff, group = diff)) +
+  geom_line(size = 1) +  # Line plot
+  geom_point(size = 2) +  # Add points
+  theme_minimal() +  # Minimal theme
+  labs(
+    x = "Time (hrs)",  # X-axis label
+    y = "Difference from soil in Pielou's evenness",  # Y-axis label
+    color = "diff"  # Legend title
+  ) +
+  scale_color_manual(values = c("diff.cotton.even" = "salmon", "diff.soybean.even" = "skyblue")) +  # Adjust colors
+  theme(
+    text = element_text(size = 12),  # General text size
+    axis.title.x = element_text(size = 14),  # X-axis title size
+    axis.title.y = element_text(size = 14),  # Y-axis title size
+    axis.text = element_text(size = 12),  # Tick labels size
+    legend.text = element_text(size = 12),  # Legend text size
+    legend.title = element_text(size = 12)  # Legend title size
+  )
+```
+
+
+# Q7:
+
+This is my submission for Coding Challenge 5.
+
+[Click here to view my GitHub repository](https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME)
+
