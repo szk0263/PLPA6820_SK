@@ -1,0 +1,158 @@
+---
+title: "Loops_and_Functions_Note_SK"
+author: "Shakiba Kazemian"
+date: "2025-03-27"
+output: html_document
+---
+This module explores **iteration** and **function creation** in R using a real dataset on fungicide sensitivity. These tools help streamline analysis, reduce repetition, and make data workflows reproducible.
+
+## Required Packages
+```{r}
+library(ggplot2)
+library(drc)
+library(tidyverse)
+library(dplyr)
+```
+
+
+# FUNCTIONS
+Functions allow us to automate repetitive tasks and write cleaner, reusable code.
+
+## Operating with formula!! (good but not efficient)
+```{r}
+(5*(32 - 32)/9)  # Result: 0°C
+(5*(80 - 32)/9)  # Result: ~26.7°C
+
+```
+
+## Instead of repeating the formula, we can write a function:
+
+### Anatomy of a Function
+```{r}
+function_name <- function(input_var) {
+  # some operations
+  return(output)
+}
+```
+
+Now, let's try writing a function that converts Celsius to Fahrenheit:
+```{r}
+C_to_F <- function(celsius_temp) {
+  fahrenheit <- celsius_temp * (9/5) + 32
+  return(fahrenheit)
+}
+```
+
+
+# ITERATION in R
+Iteration lets you repeat tasks efficiently. R offers multiple tools for this:
+
+## rep() — Repeats elements
+```{r}
+rep("A", 3)
+rep(c("A", "B"), 5)
+rep(c(1,2,3,4), times = 4)
+rep(c(1,2,5,2), times = 4, each = 4)
+```
+
+## seq() & seq_along() — Generate sequences
+```{r}
+seq(1, 7)
+seq(0, 10, by = 2)
+rep(seq(0, 10, by = 2), times = 3, each = 2)
+
+LETTERS
+seq_along(LETTERS[1:5])  # gives 1 to 5
+```
+
+
+# The for Loop
+For loops repeat a task for each item in a sequence. Classic and widely used.
+
+Example: Multiply numbers 1–10 by 2
+```{r}
+for (i in 1:10) {
+  print(i * 2)
+}
+```
+
+
+# Modeling Fungicide Sensitivity with for Loop
+Goal: estimate EC50 (concentration that reduces fungal growth by 50%) for multiple isolates.
+
+## Load and inspect the data
+```{r}
+EC50.data <- read.csv("EC50_all.csv")
+```
+
+## Fit model for a single isolate (ILSO_5-41c)
+```{r}
+isolate1 <- drm(100 * EC50.data$relgrowth[EC50.data$is == "ILSO_5-41c"] ~ 
+        EC50.data$conc[EC50.data$is == "ILSO_5-41c"], 
+        fct = LL.4(fixed = c(NA, NA, NA, NA),
+                   names = c("Slope", "Lower", "Upper", "EC50")),
+        na.action = na.omit)
+
+summary.fit <- data.frame(summary(isolate1)[[3]])
+EC50 <- ED(isolate1, respLev = c(50), type = "relative", interval = "delta")[[1]]
+```
+
+## Automate with a for loop
+
+### 1. Extract unique isolate names
+```{r}
+nm <- unique(EC50.data$is)
+```
+
+### 2. Loop through isolates and fit model
+```{r}
+for (i in seq_along(nm)) {
+  isolate1 <- drm(100 * EC50.data$relgrowth[EC50.data$is == nm[[i]]] ~ 
+                  EC50.data$conc[EC50.data$is == nm[[i]]],
+                  fct = LL.4(fixed = c(NA, NA, NA, NA),
+                             names = c("Slope", "Lower", "Upper", "EC50")),
+                  na.action = na.omit)
+  
+  summary.fit <- data.frame(summary(isolate1)[[3]])
+  EC50 <- ED(isolate1, respLev = c(50), type = "relative", interval = "delta")[[1]]
+  EC50
+}
+```
+
+### 3. Save EC50 values to a dataframe
+```{r}
+EC50.ll4 <- NULL
+for (i in seq_along(nm)) {
+  isolate1 <- drm(100 * EC50.data$relgrowth[EC50.data$is == nm[[i]]] ~ 
+                  EC50.data$conc[EC50.data$is == nm[[i]]],
+                  fct = LL.4(fixed = c(NA, NA, NA, NA),
+                             names = c("Slope", "Lower", "Upper", "EC50")),
+                  na.action = na.omit)
+
+  EC50 <- ED(isolate1, respLev = c(50), type = "relative", interval = "delta")[[1]]
+  isolate.ec_i <- data.frame(Isolate = nm[[i]], EC50 = EC50)
+  EC50.ll4 <- rbind(EC50.ll4, isolate.ec_i)
+}
+```
+
+### 4. Plot EC50 distribution
+```{r}
+ggplot(EC50.ll4, aes(x = EC50)) +
+  geom_histogram() +
+  theme_classic()
+```
+
+
+#  map() for Functional Iteration
+map() simplifies iteration using functional programming. It's concise and tidyverse-friendly.
+```{r}
+EC50.data %>%
+  group_by(is) %>%
+  nest() %>%
+  mutate(ll.4.mod = map(data, ~drm(.$relgrowth ~ .$conc,
+                                   fct = LL.4(fixed = c(NA, NA, NA, NA),
+                                              names = c("Slope", "Lower", "Upper", "EC50"))))) %>%
+  mutate(ec50 = map(ll.4.mod, ~ED(., respLev = 50, type = "relative", interval = "delta")[[1]])) %>%
+  unnest(ec50)
+```
+
