@@ -1,0 +1,10 @@
+---
+title: "Linear Model"
+author: "Shakiba Kazemian"
+date: "2025-04-01"
+output:
+  md_document:
+    variant: markdown_github
+  html_document: default
+---
+
