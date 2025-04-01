@@ -43,6 +43,24 @@ This repository includes **various R-related topics**, such as:
 - Merging datasets using left_join(), right_join(), inner_join(), and full_join()
 - [Data Wrangling Class Note](Data_Wrangeling/Data_Wrangling_ClassNote_SK.Rmd)
 
+### **6. Loops & Functions**
+- Automating repetitive tasks using for loops and while loops
+- Writing custom functions to make code modular and reusable
+- Applying functions across data with apply(), lapply(), map() from purrr
+- Use cases in data cleaning, simulation, and batch plotting
+- [Loops & Functions Class Note](Loops_and_Functions/Loops_and_Functions_Note_SK.Rmd)
+
+### **7. Linear Models & Statistical Testing**
+- Fundamentals of linear regression, ANOVA, and correlation in R
+- Using lm(), anova(), and cor.test() for model fitting and evaluation
+- Assumption checking and residual diagnostics
+- t-tests as linear models with categorical predictors
+- ANOVA with post-hoc tests using emmeans and multcomp
+- Modeling interactions and visualizing results with ggplot2
+- Introduction to mixed effects models using lmer() from the lme4 package
+
+- [Linear Models Class Note](Linear_Models/Linear_Models_Note_SK.Rmd)
+
 ---
 ## **Directory Tree**
 
@@ -75,6 +93,20 @@ fs::dir_tree()
 ├── Intro_to_R_Note
 │   ├── Coding challenge1_Introduction to R _SK.R
 │   └── Intro to R_ShakibaKazemian.R
+├── Linear_Models
+│   ├── Bull_richness.csv
+│   ├── Linear_Models_Note_SK.html
+│   ├── Linear_Models_Note_SK.md
+│   └── Linear_Models_Note_SK.Rmd
+├── Loops_and_Functions
+│   ├── Coding_Challenge6
+│   │   ├── Cities.csv
+│   │   ├── CodingChallenge6_Iterations&Functions_SK.Rmd
+│   │   ├── CodingChallenge6_Iterations-Functions_SK.md
+│   │   └── CodingChallenge6_Iterations-Functions_SK.pdf
+│   ├── EC50_all.csv
+│   ├── Loops_and_Functions_Note_SK.html
+│   └── Loops_and_Functions_Note_SK.Rmd
 ├── PLPA6820_SK.Rproj
 ├── README.md
 └── R_Markdown
