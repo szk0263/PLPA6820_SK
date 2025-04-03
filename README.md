@@ -51,14 +51,13 @@ This repository includes **various R-related topics**, such as:
 - [Loops & Functions Class Note](Loops_and_Functions/Loops_and_Functions_Note_SK.Rmd)
 
 ### **7. Linear Models & Statistical Testing**
-- Fundamentals of linear regression, ANOVA, and correlation in R
-- Using lm(), anova(), and cor.test() for model fitting and evaluation
-- Assumption checking and residual diagnostics
-- t-tests as linear models with categorical predictors
-- ANOVA with post-hoc tests using emmeans and multcomp
-- Modeling interactions and visualizing results with ggplot2
-- Introduction to mixed effects models using lmer() from the lme4 package
-
+- Fundamentals of **linear regression**, **ANOVA**, and **correlation** in R  
+- Using `lm()`, `anova()`, and `cor.test()` for model fitting and evaluation  
+- Checking model assumptions with residual diagnostics  
+- Interpreting **t-tests** as linear models  
+- Performing **ANOVA with post-hoc tests** using `emmeans` and `multcomp`  
+- Modeling **interactions** and visualizing them with `ggplot2`  
+- Introduction to **mixed effects models** using `lmer()` from the `lme4` package  
 - [Linear Models Class Note](Linear_Models/Linear_Models_Note_SK.Rmd)
 
 ---
@@ -69,6 +68,7 @@ fs::dir_tree()
 ```
 
 ```bash
+├── CodingChallenge7_LinearModel_SK.Rmd
 ├── Data_Visualization
 │   ├── Coding Challenge 2_Data visualization 1_SK.R
 │   ├── Coding Challenge 3_ Data visualization 2_SK.R
@@ -95,6 +95,11 @@ fs::dir_tree()
 │   └── Intro to R_ShakibaKazemian.R
 ├── Linear_Models
 │   ├── Bull_richness.csv
+│   ├── Coding_Challenge7
+│   │   ├── CodingChallenge7_LinearModel_SK.md
+│   │   ├── CodingChallenge7_LinearModel_SK.pdf
+│   │   ├── CodingChallenge7_LinearModel_SK.Rmd
+│   │   └── PlantEmergence.csv
 │   ├── Linear_Models_Note_SK.html
 │   ├── Linear_Models_Note_SK.md
 │   └── Linear_Models_Note_SK.Rmd
