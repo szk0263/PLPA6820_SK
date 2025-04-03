@@ -5,7 +5,7 @@ Welcome to the **PLPA6820_SK** repository! This repository is dedicated to cours
 
 ---
 
-## **Course Topics Covered (So far)**
+## **Course Topics Covered**
 This repository includes **various R-related topics**, such as:
 
 
