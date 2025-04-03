@@ -68,7 +68,6 @@ fs::dir_tree()
 ```
 
 ```bash
-├── CodingChallenge7_LinearModel_SK.Rmd
 ├── Data_Visualization
 │   ├── Coding Challenge 2_Data visualization 1_SK.R
 │   ├── Coding Challenge 3_ Data visualization 2_SK.R
